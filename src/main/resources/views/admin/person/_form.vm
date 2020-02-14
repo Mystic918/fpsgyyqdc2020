@@ -1,0 +1,101 @@
+<div class="box-body max-width-1000">
+    <input type="hidden" id="UploadPicPath" value="$!route.UploadPic()">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            OPENID
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="openid" value="$!field.getOpenid()" placeholder="微信OPENID" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            姓名
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" value="$!field.getName()" placeholder="名称" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            手机
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="mobile" value="$!field.getMobile()" placeholder="手机" pattern="[0-9]{11}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 col-xs-12 control-label">头像</label>
+        <div class="col-sm-8 col-xs-9">
+            <input type="text" class="form-control uploadPicInput" name="pic" value="$!field.getPic()" placeholder="上传图片" />
+        </div>
+        <div class="col-sm-2 col-xs-3 pl0">
+              <span class="btn btn-success btn-block upload-button">
+                上传
+                <input type="file" class="uploadPicBtn" name="file" accept="image/*">
+              </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            性别
+        </label>
+        <div class="col-sm-10 form-inline pl20">
+            <div class="radio mr20">
+                <label>
+                    <input type="radio" name="sex" value="" #if($field.getSex() == "")checked#end>
+                    无
+                </label>
+            </div>
+            <div class="radio mr20">
+                <label>
+                    <input type="radio" name="sex" value="男" #if($field.getSex() == "男")checked#end>
+                    男
+                </label>
+            </div>
+            <div class="radio mr20">
+                <label>
+                    <input type="radio" name="sex" value="女" #if($field.getSex() == "女")checked#end>
+                    女
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            生日
+        </label>
+        <div class="col-sm-10">
+            <label class="input-group">
+                <input type="text" class="form-control datepicker" name="birthday" value="$!field.getBirthday()" placeholder="生日" readonly />
+                <div class="input-group-addon"><span class="fa fa-calendar"></span></div>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            地区
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="region" value="$!field.getRegion()" placeholder="地区：省市区，用空格分开" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            年级
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="grade" value="$!field.getGrade()" placeholder="年级" />
+        </div>
+    </div>
+    #if($msg)
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10 text-danger">
+                $msg
+            </div>
+        </div>
+    #end
+</div>

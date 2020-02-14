@@ -1,0 +1,39 @@
+#if($pagedList && $pagedList.getTotalPageCount() > 1)
+    #set($currentPage = $pagedList.getPageIndex() + 1)
+    #set($prevPage = $pagedList.getPageIndex() - 1)
+    #set($nextPage = $pagedList.getPageIndex() + 1)
+    #set($lastPage = $pagedList.getTotalPageCount() - 1)
+<ul class="pagination pagination-sm no-margin pull-right">
+    <li class="disabled">
+        <span>
+            共 $pagedList.getTotalPageCount() 页, 第
+            <select onchange="goPage(this.value - 1)">
+                #foreach( $pageindex in [1..$pagedList.getTotalPageCount()])
+                    <option value="$!pageindex" #if($currentPage == $!pageindex)selected#end>$!pageindex</option>
+                #end
+            </select>
+            页
+        </span>
+    </li>
+    <li class="disabled">
+        <span>
+            每页
+            <select onchange="goPagesize(this.value)">
+                <option value="10" #if($pagedList.getPageSize() == 10)selected#end>10</option>
+                <option value="30" #if($pagedList.getPageSize() == 30)selected#end>30</option>
+                <option value="50" #if($pagedList.getPageSize() == 50)selected#end>50</option>
+                <option value="100" #if($pagedList.getPageSize() == 100)selected#end>100</option>
+            </select>
+            条
+        </span>
+    </li>
+    #if($pagedList.hasPrev())
+        <li><a href="javascript:;" onclick="goPage(0)">首 页</a></li>
+        <li><a href="javascript:;" onclick="goPage($prevPage)">上一页</a></li>
+    #end
+    #if($pagedList.hasNext())
+        <li><a href="javascript:;" onclick="goPage($nextPage)">下一页</a></li>
+        <li><a href="javascript:;" onclick="goPage($lastPage)">尾 页</a></li>
+    #end
+</ul>
+#end

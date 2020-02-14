@@ -1,0 +1,9 @@
+<input type="hidden" value="$!parent" id="menuParent">
+<input type="hidden" value="$!current" id="menuCurrent">
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu" id="left-menu">
+            <li class="header">主菜单</li>
+        </ul>
+    </section>
+</aside>

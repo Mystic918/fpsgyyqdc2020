@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE xml>
+<migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration">
+    <changeSet type="apply">
+        <createTable name="survey_enterprise" pkName="pk_survey_enterprise">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar"/>
+            <column name="code" type="varchar"/>
+            <column name="password" type="varchar"/>
+            <column name="ext" type="clob"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+        <createTable name="survey_person" pkName="pk_survey_person">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="enterprise_id" type="bigint" references="survey_enterprise.id" foreignKeyName="fk_survey_person_enterprise_id" foreignKeyIndex="ix_survey_person_enterprise_id"/>
+            <column name="name" type="varchar"/>
+            <column name="code" type="varchar"/>
+            <column name="mobile" type="varchar"/>
+            <column name="ext" type="clob"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+            <column name="ip" type="varchar"/>
+            <column name="location" type="varchar"/>
+        </createTable>
+        <createTable name="sys_manager" pkName="pk_sys_manager">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="username" type="varchar" unique="uq_sys_manager_username"/>
+            <column name="password" type="varchar"/>
+            <column name="name" type="varchar"/>
+            <column name="mobile" type="varchar"/>
+            <column name="email" type="varchar"/>
+            <column name="admin" type="integer" notnull="true"/>
+            <column name="role_id" type="bigint" references="sys_role.id" foreignKeyName="fk_sys_manager_role_id" foreignKeyIndex="ix_sys_manager_role_id"/>
+            <column name="state" type="varchar"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+        <createTable name="sys_menu" pkName="pk_sys_menu">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar"/>
+            <column name="alias" type="varchar"/>
+            <column name="type" type="varchar"/>
+            <column name="icon" type="varchar"/>
+            <column name="parent_id" type="bigint" references="sys_menu.id" foreignKeyName="fk_sys_menu_parent_id" foreignKeyIndex="ix_sys_menu_parent_id"/>
+            <column name="link" type="varchar"/>
+            <column name="priority" type="integer" notnull="true"/>
+            <column name="is_show" type="integer" notnull="true"/>
+        </createTable>
+        <createTable name="sys_params" pkName="pk_sys_params">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar"/>
+            <column name="alias" type="varchar"/>
+            <column name="value" type="varchar"/>
+            <column name="remark" type="varchar"/>
+        </createTable>
+        <createTable name="sys_role" pkName="pk_sys_role">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar"/>
+            <column name="type" type="varchar"/>
+        </createTable>
+        <createTable name="sys_role_menu" pkName="pk_sys_role_menu">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="role_id" type="bigint" references="sys_role.id" foreignKeyName="fk_sys_role_menu_role_id" foreignKeyIndex="ix_sys_role_menu_role_id"/>
+            <column name="menu_id" type="bigint" references="sys_menu.id" foreignKeyName="fk_sys_role_menu_menu_id" foreignKeyIndex="ix_sys_role_menu_menu_id"/>
+        </createTable>
+        <createTable name="tmp_log" pkName="pk_tmp_log">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="class_id" type="varchar"/>
+            <column name="class_type" type="varchar"/>
+            <column name="class_name" type="varchar"/>
+            <column name="class_level" type="varchar"/>
+            <column name="content" type="varchar"/>
+            <column name="remark" type="varchar"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+        <createTable name="tmp_upload" pkName="pk_tmp_upload">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar"/>
+            <column name="path" type="varchar"/>
+            <column name="link" type="varchar"/>
+            <column name="suffix" type="varchar"/>
+            <column name="type" type="varchar"/>
+            <column name="size" type="varchar"/>
+        </createTable>
+    </changeSet>
+</migration>

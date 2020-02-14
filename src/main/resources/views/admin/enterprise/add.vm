@@ -1,0 +1,37 @@
+#parse("/views/sys/layout.vm")
+#set($style ='
+  <link href="/fan_admin/plugin/datepicker/datepicker3.css" rel="stylesheet" type="text/css"/>
+  <link href="/fan_admin/plugin/datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+')
+#set($javascript ='
+  <script src="/fan_admin/plugin/datepicker/bootstrap-datepicker.js"></script>
+  <script src="/fan_admin/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
+  <script src="/fan_admin/js/datepicker.js"></script>
+  <script src="/fan_admin/plugin/upload/jquery.ui.widget.js"></script>
+  <script src="/fan_admin/plugin/upload/jquery.iframe-transport.js"></script>
+  <script src="/fan_admin/plugin/upload/jquery.fileupload.js"></script>
+  <script src="/fan_admin/js/form.js"></script>
+')
+#@layout($style $javascript $route $request)
+<div class="content-wrapper page-height">
+    <section class="content-header">
+        <h1>
+            $pageTitle
+            <small><a href="../enterprise">返回列表</a></small>
+        </h1>
+    </section>
+    <section class="content">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">新增</h3>
+            </div>
+            <form action="" method="post" class="form-horizontal">
+                #parse("/views/admin/enterprise/_form.vm")
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+#end

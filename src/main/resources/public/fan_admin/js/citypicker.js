@@ -1,0 +1,3 @@
+$(function () {
+    $('.citypicker').citypicker();
+});

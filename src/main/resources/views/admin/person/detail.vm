@@ -1,0 +1,103 @@
+#parse("/views/sys/layout_inc.vm")
+#set($style ='
+')
+#set($javascript ='
+')
+#@layout($style $javascript $route $request)
+<div class="box-body">
+    <table class="table table-hover table-bordered" id="detail">
+        <tbody>
+        <tr>
+            <th width="100%" colspan="4"><span style="font-size:16px">一、基本信息</span></th>
+        </tr>
+        <tr>
+            <th width="15%">姓名</th>
+            <td width="35%">$!field.getName()</td>
+            <th width="15%">身份证号</th>
+            <td width="35%">$!field.getCode()</td>
+        </tr>
+        <tr>
+            <th width="15%">籍贯</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "place")</td>
+            <th width="15%">手机号码</th>
+            <td width="35%">$!field.getMobile()</td>
+        </tr>
+        <tr>
+            <th width="15%">工作单位</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "work_unit")</td>
+            <th width="15%">现居住地</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "address")</td>
+        </tr>
+        <tr>
+            <th width="100%" colspan="4"><span style="font-size:16px">二、假期外出情况</span></th>
+        </tr>
+        <tr>
+            <th width="15%">离开肇庆时间</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "travel_leave")</td>
+            <th width="15%">随行人员</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "travel_partner")</td>
+        </tr>
+        <tr>
+            <th width="15%">回肇庆时间</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "travel_back")</td>
+            <th width="15%">近14日旅行史</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "travel_history")</td>
+        </tr>
+        <tr>
+            <th width="75%" colspan="2">是否路经湖北或与湖北籍人员接触</th>
+            <td width="25%" colspan="2">$!format.extToStr($!field.getExt(), "travel_pass")</td>
+        </tr>
+        <tr>
+            <th width="50%" colspan="2">是否与疑似或确诊病例密切接触</th>
+            <td width="50%" colspan="2">$!format.extToStr($!field.getExt(), "travel_touch")</td>
+        </tr>
+        <tr>
+            <th width="100%" colspan="4"><span style="font-size:16px">三、身体状况</span></th>
+        </tr>
+        <tr>
+            <th width="15%">是否发热</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "body_hot")</td>
+            <th width="15%">是否有咳嗽症状</th>
+            <td width="35%">$!format.extToStr($!field.getExt(), "body_cough")</td>
+        </tr>
+        <tr>
+            <th width="15%" colspan="1">隔离情况</th>
+            <td width="85%" colspan="3">$!format.extToStr($!field.getExt(), "body_apart")</td>
+        </tr>
+        <tr>
+            <th width="100%" colspan="4"><span style="font-size:16px">四、直系亲属健康状况</span></th>
+        </tr>
+        <tr>
+            <th width="15%" colspan="1">父母</th>
+            <td width="85%" colspan="3">$!format.extToStr($!field.getExt(), "relative_parent")</td>
+        </tr>
+        <tr>
+            <th width="15%" colspan="1">配偶</th>
+            <td width="85%" colspan="3">$!format.extToStr($!field.getExt(), "relative_spouse")</td>
+        </tr>
+        <tr>
+            <th width="15%" colspan="1">子女</th>
+            <td width="85%" colspan="3">$!format.extToStr($!field.getExt(), "relative_child")</td>
+        </tr>
+        <tr>
+            <th width="100%" colspan="4"><span style="font-size:16px">五、复产后员工食宿安排</span></th>
+        </tr>
+        <tr>
+            <th width="50%" colspan="2">企业安排集中居住还是分散居住</th>
+            <td width="50%" colspan="2">$!format.extToStr($!field.getExt(), "back_live")</td>
+        </tr>
+        <tr>
+            <th width="50%" colspan="2">企业是否安排集中用餐</th>
+            <td width="50%" colspan="2">$!format.extToStr($!field.getExt(), "back_eat")</td>
+        </tr>
+        <tr>
+            <th width="100%" colspan="4"><span style="font-size:16px">六、其他需说明的情况</span></th>
+        </tr>
+        <tr>
+            <th width="15%" colspan="1">其他情况</th>
+            <td width="85%" colspan="3">$!format.extToStr($!field.getExt(), "state_other")</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+#end

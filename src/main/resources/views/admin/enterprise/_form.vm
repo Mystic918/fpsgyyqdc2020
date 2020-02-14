@@ -1,0 +1,113 @@
+<div class="box-body max-width-1000">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            企业名称
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" value="$!field.getName()" placeholder="企业名称" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            企业地址
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="ext_address" value="$!format.extToStr($!field.getExt(), "address")" placeholder="企业地址" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            统一社会信用代码
+        </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="code" value="$!field.getCode()" placeholder="统一社会信用代码" required />
+        </div>
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            24小时值班电话
+        </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="ext_phone_24" value="$!format.extToStr($!field.getExt(), "phone_24")" placeholder="24小时值班电话" required pattern="[0-9]{11}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            法定代表人
+        </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="ext_fr" value="$!format.extToStr($!field.getExt(), "fr")" placeholder="法定代表人" required />
+        </div>
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            联系电话
+        </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="ext_phone" value="$!format.extToStr($!field.getExt(), "phone")" placeholder="联系电话" required pattern="[0-9]{11}"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            联系人
+        </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="ext_contact" value="$!format.extToStr($!field.getExt(), "contact")" placeholder="联系人" required />
+        </div>
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            手机号码
+        </label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="ext_mobile" value="$!format.extToStr($!field.getExt(), "mobile")" placeholder="手机号码" required pattern="[0-9]{11}"/>
+        </div>
+    </div>
+    <div class="form-group">
+
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            员工总人数
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="ext_total_person" value="$!format.extToStr($!field.getExt(), "total_person")" placeholder="员工总人数" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            其中，来自或去过疫情重点地区人数
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="ext_key_person" value="$!format.extToStr($!field.getExt(), "key_person")" placeholder="其中，来自或去过疫情重点地区人数" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            返岗人数
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="ext_back_person" value="$!format.extToStr($!field.getExt(), "back_person")" placeholder="返岗人数" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">
+            <span class="text-danger">*</span>
+            查询密码
+        </label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="password" value="$!field.getPassword()" placeholder="查询密码" />
+        </div>
+    </div>
+    #if($msg)
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10 text-danger">
+                $msg
+            </div>
+        </div>
+    #end
+</div>

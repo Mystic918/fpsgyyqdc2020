@@ -1,0 +1,97 @@
+#parse("/views/sys/layout.vm")
+#set($style ='
+   <link href="/fan_admin/plugin/bootstrap-date/datepicker3.css" rel="stylesheet" type="text/css"/>
+   <link href="/fan_admin/plugin/bootstrap-date/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+')
+#set($javascript ='
+  <script src="/fan_admin/plugin/bootstrap-date/bootstrap-datepicker.js"></script>
+  <script src="/fan_admin/plugin/bootstrap-date/bootstrap-datetimepicker.min.js"></script>
+  <script src="/fan_admin/plugin/bootstrap-date/bootstrap-datetimepicker.zh-CN.js"></script>
+  <script src="/fan_admin/js/datepicker.js"></script>
+')
+#@layout($style $javascript $route $request)
+
+<div class="content-wrapper page-height">
+  <section class="content-header">
+    <h1>
+        $pageTitle
+    </h1>
+  </section>
+  <section class="content">
+    <div class="box">
+      <div class="box-header">
+        <form class="form-inline" name="form_list">
+          <input type="hidden" name="page" value="$!pagedList.getPageIndex()">
+          <input type="hidden" name="pagesize" value="$!pagedList.getPageSize()">
+          <div class="form-group mr10">
+            <input type="text" class="form-control input-sm" name="query_name" placeholder="姓名/手机" value="$!queryName">
+          </div>
+          <div class="form-group mr10">
+            <input type="text" class="form-control input-sm" name="query_enterprise" placeholder="企业名称" value="$!queryEnterprise">
+          </div>
+          <div class="form-group mr10">
+            <label class="control-label">时间</label>
+            <input type="text" class="form-control input-sm datepicker" name="query_start"
+                   placeholder="开始时间" value="$!queryStart" readonly>
+            -
+            <input type="text" class="form-control input-sm datepicker" name="query_end"
+                   placeholder="结束时间" value="$!queryEnd" readonly>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-sm">查询</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="this.form.action='./person/export';this.form.submit()">导出</button>
+          </div>
+        </form>
+      </div>
+      <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <td>ID</td>
+            <th>名称</th>
+            <th>身份证号</th>
+            <th>手机</th>
+            <th>单位</th>
+            <th>创建时间</th>
+            <th>修改时间</th>
+            <th width="180"></th>
+          </tr>
+          </thead>
+          <tbody>
+              #foreach($field in $pagedList.getList())
+              <tr>
+                <td>$!field.getId()</td>
+                <td>
+                  <a href="#aModal" onclick="createModal('../admin/person/$!field.getId()/detail')"
+                     data-toggle="modal">
+                    $!field.getName()
+                  </a>
+                </td>
+                <td>$!field.getCode()</td>
+                <td>$!field.getMobile()</td>
+                <td>
+                  <a href="#aModal" onclick="createModal('../admin/enterprise/$!field.getEnterprise().getId()/detail')"
+                     data-toggle="modal">
+                    $!field.getEnterprise().getName()
+                  </a>
+                </td>
+                <td>$!format.dateToStr($!field.getCreatedAt(), "yyyy-MM-dd")</td>
+                <td>$!format.dateToStr($!field.getUpdatedAt(), "yyyy-MM-dd")</td>
+                <td>
+                  <a href="javascript:;" class="btn-sm btn-primary">二维码</a>
+                  <a href="javascript:;" onclick="goDel('./enterprise/$!field.getId()/delete')"
+                     class="btn-sm btn-default">删除</a>
+                </td>
+              </tr>
+              #end
+          </tbody>
+        </table>
+      </div>
+      <div class="box-footer clearfix">
+        #parse("/views/sys/_include/_pagination.vm")
+##        <a href="./enterprise/add" class="btn btn-primary">新增</a>
+      </div>
+    </div>
+  </section>
+</div>
+#end

@@ -1,0 +1,86 @@
+.table-responsive.nowrap .table>tbody>tr>td,
+.table-responsive.nowrap .table>tbody>tr>th,
+.table-responsive.nowrap .table>tfoot>tr>td,
+.table-responsive.nowrap .table>tfoot>tr>th,
+.table-responsive.nowrap .table>thead>tr>td,
+.table-responsive.nowrap .table>thead>tr>th {
+    white-space: nowrap;
+}
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td{
+    border-bottom-width: 0;
+}
+th.th-center{
+    text-align: center !important;
+}
+th.th-middle{
+    vertical-align: middle !important;
+}
+td.td-center{
+    text-align: center !important;
+}
+td.td-middle{
+    vertical-align: middle !important;
+}
+td.td-md{
+    padding: 3px 5px !important;
+    font-size: 14px;
+    line-height: 1;
+}
+td.td-sm{
+    padding: 3px 5px !important;
+    font-size: 12px;
+    line-height: 1;
+}
+table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting{
+    padding-right: 0;
+}
+table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after{
+    vertical-align: middle;
+    padding: 0 5px;
+    position: static;
+    display: inline-block;
+}
+.pagination>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
+.pagination>.current {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7
+}
+.table-select{
+    border-bottom: 1px solid #f4f4f4;
+}
+.table-select tr{
+    cursor: pointer;
+    color: #337ab7;
+}
+.table-select>tbody>tr.active>td{
+    background-color: #337ab7;
+    color: #fff;
+}
+.table-select>tbody>tr.active:hover{
+    background-color: #337ab7;
+    color: #fff;
+}
+.table.table-detail{
+    margin-bottom: 0;
+}
+.table.table-detail th{
+    text-align: center;
+    vertical-align: middle;
+}
+.table.table-detail td{
+    text-align: left;
+    vertical-align: middle;
+}

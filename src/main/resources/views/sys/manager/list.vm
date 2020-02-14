@@ -1,0 +1,87 @@
+#parse("/views/sys/layout.vm")
+#set($style ='
+')
+#set($javascript ='
+')
+#@layout($style $javascript $route $request)
+
+    #set($currentPage = $pagedList.getPageIndex() + 1)
+    #set($prevPage = $pagedList.getPageIndex() - 1)
+    #set($nextPage = $pagedList.getPageIndex() + 1)
+    #set($lastPage = $pagedList.getTotalPageCount() - 1)
+
+<div class="content-wrapper page-height">
+    <section class="content-header">
+        <h1>
+            $pageTitle
+        </h1>
+    </section>
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <form class="form-inline" name="form_list">
+                    <input type="hidden" name="page" value="$!pagedList.getPageIndex()">
+                    <input type="hidden" name="pagesize" value="$!pagedList.getPageSize()">
+                    <div class="form-group" style="margin-right: 10px;">
+                        <input type="text" class="form-control input-sm" name="query_username" placeholder="用户名" value="$!queryUsername">
+                    </div>
+                    <div class="form-group" style="margin-right: 10px;">
+                        <input type="text" class="form-control input-sm" name="query_name" placeholder="姓名" value="$!queryName">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm">查询</button>
+                    </div>
+                </form>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>姓名</th>
+                        <th>手机</th>
+                        <th>邮箱</th>
+                        <th>角色</th>
+                        <th>状态</th>
+                        <th width="120"></th>
+                    </tr>
+                        #foreach( $field in $pagedList.getList())
+                        <tr>
+                            <td>$!field.getId()</td>
+                            <td>$!field.getUsername()</td>
+                            <td>$!field.getName()</td>
+                            <td>$!field.getMobile()</td>
+                            <td>$!field.getEmail()</td>
+                            <td>
+                                #if($field.getAdmin() == 1)
+                                    <span class="label label-primary">管理员</span>
+                                #else
+                                    <span class="label label-default">$!field.getRoleType()</span>
+                                    <span class="label label-default">$!field.getRole().getName()</span>
+                                #end
+                            </td>
+                            <td>
+                                #if($field.getState() == "开启")
+                                    <span class="label label-success">开启</span>
+                                #else
+                                    <span class="label label-danger">关闭</span>
+                                #end
+                            </td>
+                            <td>
+                                <a href="./manager/$!field.getId()/edit" class="btn-sm btn-primary">修改</a>
+                                <a href="javascript:;" onclick="goDel('./manager/$!field.getId()/delete')" class="btn-sm btn-primary">删除</a>
+                            </td>
+                        </tr>
+                        #end
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer clearfix">
+                #parse("/views/sys/_include/_pagination.vm")
+                <a href="./manager/add" class="btn btn-primary">新增</a>
+            </div>
+        </div>
+    </section>
+</div>
+#end

@@ -1,0 +1,24 @@
+#parse("/views/sys/layout.vm")
+#set($style ='
+   <link href="/fan_admin/plugin/bootstrap-date/datepicker3.css" rel="stylesheet" type="text/css"/>
+   <link href="/fan_admin/plugin/bootstrap-date/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+')
+#set($javascript ='
+  <script src="/fan_admin/plugin/bootstrap-date/bootstrap-datepicker.js"></script>
+  <script src="/fan_admin/plugin/bootstrap-date/bootstrap-datetimepicker.min.js"></script>
+  <script src="/fan_admin/plugin/bootstrap-date/bootstrap-datetimepicker.zh-CN.js"></script>
+  <script src="/fan_admin/js/datepicker.js"></script>
+')
+#@layout($style $javascript $route $request)
+
+<div class="content-wrapper page-height">
+  <section class="content-header">
+    <h1>
+        $!pageTitle
+    </h1>
+  </section>
+  <section class="content">
+    开发中...
+  </section>
+</div>
+#end

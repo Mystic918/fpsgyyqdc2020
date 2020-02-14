@@ -1,0 +1,16 @@
+#parse("/views/sys/layout.vm")
+#set($style ='
+')
+#set($javascript ='
+')
+#@layout($style $javascript $route $request)
+<div class="content-wrapper page-height">
+    <section class="content-header">
+        <h1>
+            欢迎访问后台系统
+        </h1>
+    </section>
+    <section class="content">
+    </section>
+</div>
+#end

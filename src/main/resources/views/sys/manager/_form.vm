@@ -1,0 +1,97 @@
+<div class="box-body max-width-800">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">
+            <span class="text-danger">*</span>
+            用户名
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="username" value="$!field.getUsername()" placeholder="用户名" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">
+            <span class="text-danger">*</span>
+            密码
+        </label>
+        <div class="col-sm-8">
+            <input type="password" class="form-control" name="password" value="$!field.getPassword()" placeholder="密码" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">
+            <span class="text-danger">*</span>
+            姓名
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="name" value="$!field.getName()" placeholder="真实姓名" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">
+            手机
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="mobile" value="$!field.getMobile()" placeholder="手机" pattern="[0-9]{11}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">
+            邮箱
+        </label>
+        <div class="col-sm-8">
+            <input type="email" class="form-control" name="email" value="$!field.getEmail()" placeholder="邮箱地址" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">管理员</label>
+        <div class="col-sm-8 form-inline" style="padding-left: 25px;">
+            <div class="radio" style="margin-right: 20px;">
+                <label onclick="$('#role').hide()">
+                    <input type="radio" name="admin" value="1" #if($field.getAdmin() == 1)checked#end>
+                    是
+                </label>
+            </div>
+            <div class="radio">
+                <label onclick="$('#role').show()">
+                    <input type="radio" name="admin" value="0" #if($field.getAdmin() != 1)checked#end>
+                    否
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" id="role" #if($field.getAdmin() == 1)style="display:none"#end>
+        <label class="col-sm-4 control-label">角色名</label>
+        <div class="col-sm-4">
+            <select name="role_id" class="form-control">
+                <option value="">== 请选择 ==</option>
+                #foreach( $role in $roles)
+                    <option value="$!role.getId()" #if($field.getRole().getId() == $role.getId())selected#end>$!role.getName()</option>
+                #end
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">
+            <span class="text-danger">*</span>
+            类型
+        </label>
+        <div class="col-sm-8 form-inline" style="padding-left: 25px;">
+            #foreach($item in $states)
+                <div class="radio mr20">
+                    <label>
+                        <input type="radio" name="state" value="$!item" #if($field.getState() == $item)checked#end required>
+                        $!item
+                    </label>
+                </div>
+            #end
+        </div>
+    </div>
+    #if($msg)
+    <div class="form-group">
+        <label class="col-sm-4 control-label"></label>
+        <div class="col-sm-8 text-danger">
+            $msg
+        </div>
+    </div>
+    #end
+</div>

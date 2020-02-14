@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE xml>
+<migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration">
+    <changeSet type="apply">
+        <addColumn tableName="survey_enterprise">
+            <column name="deleted_at" type="timestamp"/>
+        </addColumn>
+        <addColumn tableName="survey_person">
+            <column name="deleted_at" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+</migration>

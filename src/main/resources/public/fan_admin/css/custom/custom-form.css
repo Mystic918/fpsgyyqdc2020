@@ -1,0 +1,74 @@
+.form-control.datepicker{
+    padding: 6px 12px;
+}
+.form-control.datetimepicker{
+    padding: 6px 12px;
+    margin-top: 0;
+}
+.upload-button{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.upload-button input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}
+.upload-multi .item, .upload-multi .add{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    float: left;
+}
+.upload-multi .item img{
+    width: 100%;
+    height: 100%;
+}
+.upload-multi .add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: #999;
+    overflow: hidden;
+}
+.upload-multi .add input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.upload-multi .item .remove{
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    background: darkred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    padding: 0px 12px;
+}
+.select2-dropdown .select2-search__field:focus, .select2-search--inline .select2-search__field:focus{
+    border: none;
+}
+.ck-content{
+    min-height: 400px;
+}

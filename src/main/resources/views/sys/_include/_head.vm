@@ -1,0 +1,25 @@
+<header class="main-header">
+    <a href="$route.AdminHome()" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">FPS</span>
+        <span class="logo-lg">后台管理系统</span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="$!route.Profile()">个人资料（$format.toMap($!request.session().attribute("admin_user")).get("role")）</a>
+                </li>
+                <li>
+                    <a href="$!route.Passwd()">登陆密码</a>
+                </li>
+                <li class="active">
+                    <a href="$!route.Logout()">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

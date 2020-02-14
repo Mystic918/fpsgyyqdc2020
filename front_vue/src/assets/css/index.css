@@ -1,0 +1,100 @@
+*{margin: 0}
+.survey{
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.survey-hd{
+  border-bottom: 1px solid #f5f5f5;
+  margin-bottom: 10px;
+}
+.survey-hd h3.title{
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.survey-hd .summary{
+  font-size: 14px;
+  line-height: 2;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.survey-ft .tips{
+  font-size: 14px;
+  line-height: 1.5;
+  color: #999;
+}
+.survey .el-form--label-top .el-form-item__label{
+  padding: 8px 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+.survey .el-form-item{
+  margin-bottom: 20px;
+}
+.survey .action{
+  padding-top: 10px;
+}
+.survey .el-radio{
+  display: block !important;
+  padding: 6px 0;
+}
+.survey-menu{
+  width: 200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.survey-menu .item{
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+}
+.survey-menu .el-button{
+  width: 100%;
+  padding: 15px 0;
+  font-size: 16px;
+}
+.survey-qrcode{
+  padding-top: 20px;
+}
+.survey-qrcode .pic{
+  padding: 10px 0;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.survey-qrcode .text{
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+}
+.el-message-box__wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.el-message-box{
+  max-width: 80%;
+}
+.survey .el-checkbox{
+  display: flex;
+}
+.survey .el-checkbox, .el-checkbox__input{
+  white-space: normal;
+}
+.survey-result{
+  padding: 20px 0;
+}
+.survey-result .icon{
+  font-size: 100px;
+  line-height: 1;
+  text-align: center;
+  color: #67c23a;
+  padding: 20px 0;
+}
+.survey-result .text{
+  font-size: 20px;
+  text-align: center;
+  line-height: 1;
+}

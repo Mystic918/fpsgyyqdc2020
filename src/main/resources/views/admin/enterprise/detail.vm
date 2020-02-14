@@ -1,0 +1,55 @@
+#parse("/views/sys/layout_inc.vm")
+#set($style ='
+')
+#set($javascript ='
+')
+#@layout($style $javascript $route $request)
+<div class="box-body">
+    <table class="table table-hover table-bordered" id="detail">
+        <tbody>
+        <tr>
+            <th width="18%">企业名称</th>
+            <td width="82%" colspan="3">$!field.getName()</td>
+        </tr>
+        <tr>
+            <th width="18%">企业地址</th>
+            <td width="82%" colspan="3">$!format.extToStr($!field.getExt(), "address")</td>
+        </tr>
+        <tr>
+            <th width="18%">统一社会信用代码</th>
+            <td width="32%">$!field.getCode()</td>
+            <th width="18%">24小时值班电话</th>
+            <td width="32%">$!format.extToStr($!field.getExt(), "phone_24")</td>
+        </tr>
+        <tr>
+            <th width="18%">法定代表人</th>
+            <td width="32%">$!format.extToStr($!field.getExt(), "fr")</td>
+            <th width="18%">联系电话</th>
+            <td width="32%">$!format.extToStr($!field.getExt(), "mobile")</td>
+        </tr>
+        <tr>
+            <th width="18%">联系人</th>
+            <td width="32%">$!format.extToStr($!field.getExt(), "contact")</td>
+            <th width="18%">手机号码</th>
+            <td width="32%">$!format.extToStr($!field.getExt(), "phone")</td>
+        </tr>
+        <tr>
+            <th width="18%">员工总人数</th>
+            <td width="82%" colspan="3">$!format.extToStr($!field.getExt(), "total_person")</td>
+        </tr>
+        <tr>
+            <th width="18%">其中，来自或去过疫情重点地区人数</th>
+            <td width="82%" colspan="3">$!format.extToStr($!field.getExt(), "key_person")</td>
+        </tr>
+        <tr>
+            <th width="18%">返岗人数</th>
+            <td width="82%" colspan="3">$!format.extToStr($!field.getExt(), "back_person")</td>
+        </tr>
+        <tr>
+            <th width="18%">二维码</th>
+            <td width="82%" colspan="3"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+#end
